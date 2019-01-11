@@ -9,7 +9,8 @@ import (
 // Logger satisfies log.Logger and is designed to be constructed into a context
 // via New. Components can retrieve it from the context via From, and use the
 // Log method to append keyvals. The entrypoint (e.g. an http.Handler) should
-// Flush at the end of its lifecycle (e.g. the end of the request).
+// call Keyvals at the end of its lifecycle (e.g. the end of the request) to
+// report all of the logged data.
 type Logger struct {
 	keyvals []interface{}
 }
